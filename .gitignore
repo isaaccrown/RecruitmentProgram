@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/RecruitmentProgram.API/v17
+/RecriutmentProgram.API/.vs
+/RecriutmentProgram.API/RecriutmentProgram.API/obj
+/.vs
+/src/RecriutmentProgram.API/.vs
+/src/RecriutmentProgram.API/RecriutmentProgram.API/obj
+/src/RecriutmentProgram.Domain/obj/Debug/net8.0
+/src/RecriutmentProgram.Domain/obj
+/src/RecriutmentProgram.Infrastructure/obj
+/src/RecruitmentProgram.Applications/obj
