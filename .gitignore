@@ -12,3 +12,7 @@
 /src/RecriutmentProgram.Domain/obj
 /src/RecriutmentProgram.Infrastructure/obj
 /src/RecruitmentProgram.Applications/obj
+/src/RecruitmentProgram.Applications/bin/Debug/net8.0
+/src/RecriutmentProgram.Domain/bin/Debug/net8.0
+/src/RecriutmentProgram.Infrastructure/bin/Debug/net8.0
+/src/RecriutmentProgram.API/RecriutmentProgram.API/bin/Debug/net8.0
