@@ -11,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\RecriutmentProgram.Infrastructure\RecriutmentProgram.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\RecruitmentProgram.Applications\RecruitmentProgram.Applications.csproj" />
   </ItemGroup>
 
 </Project>
