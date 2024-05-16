@@ -16,3 +16,6 @@
 /src/RecriutmentProgram.Domain/bin/Debug/net8.0
 /src/RecriutmentProgram.Infrastructure/bin/Debug/net8.0
 /src/RecriutmentProgram.API/RecriutmentProgram.API/bin/Debug/net8.0
+/test/RecruitmentProgramTest/bin/Debug/net8.0
+/test/RecruitmentProgramTest/obj
+/test/RecruitmentProgramTests/EmployeeRepositoryTest/obj
