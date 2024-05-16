@@ -11,8 +11,8 @@ namespace RecruitmentProgram.Applications.Dtos
     {
         public string Id { get; set; }
 
-        //[Required]
         public string ProgramId { get; set; }
+
         public ICollection<EmployeeAnswer> EmployeeAnswers { get; set; }
     }
 }

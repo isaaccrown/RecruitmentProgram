@@ -29,11 +29,13 @@ namespace RecriutmentProgram.Infrastructure
             var applicationProgram = "EmployeeProgram";
             _container = _cosmosClient.GetContainer(databaseName, applicationProgram);
         }
+
         public async Task<EmployeeApplicationDto> Apply(string programId, EmployeeApplicationDto employeeApplication)
         {
             var response = new EmployeeApplicationDto();
             var result = await _container.ReadItemAsync<EmployeeProgram>(programId, new PartitionKey())
-                ?? throw new Exception("No such program");
+                ?? throw new Exception("c");
+
             var employeeProgram = result.Resource;
 
             if (employeeProgram != null)
@@ -60,22 +62,22 @@ namespace RecriutmentProgram.Infrastructure
             }
             return response;
         }
-
         public async Task<EmployeeApplicationDto> UpdateApplication(EmployeeApplicationDto input)
         {
-
-            var response = new EmployeeApplicationDto();
             if (string.IsNullOrEmpty(input?.Id))
-                throw new Exception("Id cannot not be empty");
-            var result = await _applicationContainer.ReadItemAsync<EmployeeApplication>(input.Id, new PartitionKey(input.Id));
-            var existingEntry = result.Resource;
+                throw new ArgumentException("Id cannot be null or empty", nameof(input.Id));
 
-            if (existingEntry != null)
-                throw new Exception("Entry not found");
-            existingEntry.EmployeeAnswers = input.EmployeeAnswers;
-            var entry = await _applicationContainer
-                .ReplaceItemAsync<EmployeeApplication>(existingEntry, input.Id, new PartitionKey(input.Id));
+            var result = await _applicationContainer.ReadItemAsync<EmployeeApplication>(input.Id, new PartitionKey(input.Id));
+            var existingApplication = result.Resource;
+
+            if (existingApplication == null)
+                throw new Exception("Existing application not found");
+
+            existingApplication.EmployeeAnswers = input.EmployeeAnswers;
+
+            var entry = await _applicationContainer.ReplaceItemAsync<EmployeeApplication>(existingApplication, input.Id, new PartitionKey(input.Id));
             var output = entry.Resource;
+
             return new EmployeeApplicationDto
             {
                 Id = output.Id,
@@ -83,5 +85,6 @@ namespace RecriutmentProgram.Infrastructure
                 EmployeeAnswers = output.EmployeeAnswers
             };
         }
+
     }
 }
